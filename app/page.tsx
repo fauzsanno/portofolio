@@ -250,13 +250,7 @@ export default function Home()  {
           Data Mining & Machine Learning Enthusiast,
           <br className="hidden sm:block" />
 
-          Front-End Developer.
-
-          <br />
-
-          I turn problems, data and ideas into practical
-          digital solutions.
-
+          Front-End Developer.     
         </p>
 
 
