@@ -16,30 +16,71 @@ import Image from "next/image";
 import { useState } from 'react';
 
 const projects = [
-  {
-    n: '01',
-    title: 'Machine Learning',
-    desc: 'Optimization of Heart Disease Risk Prediction Using a Hybrid Gradient Boosting Method Based on a Combination of XGBoost and LightGBM Models.',
-    tags: ['Python', 'hybrid ','XGBoost', 'LightGBM'],
-    stat: 'Experiment #001',
-    github: 'https://github.com/fauzsanno/hybrid-xgboost-lightgbm-heart-prediction',
-    deploy: 'https://hybrid-xgboost-lightgbm-heart-prediction-n6j49etywmwt48vc58d5h.streamlit.app/',
+{
+  n: '01',
 
-  },
+  title: 'TA/Skirpsi (Optimization of Heart Disease Risk Prediction Using a Hybrid Gradient Boosting Method Based on a Combination of XGBoost and LightGBM Models)',
+
+  category: 'Data Mining / Machine Learning',
+
+  projectType: 'Supervised Learning',
+
+  dataset: 'Cardiovascular Disease Dataset (Kaggle)',
+
+  bestModel: 'Hybrid XGBoost + LightGBM',
+
+  silhouetteScore: '',
+
+  desc: 'A machine learning research project focused on optimizing cardiovascular disease risk prediction using a hybrid Gradient Boosting approach combining XGBoost and LightGBM. The experiment compares baseline models, optimized models, and hybrid ensemble configurations using a leakage-aware evaluation workflow. Model performance is assessed using accuracy, precision, recall, F1-score, and ROC-AUC. The best-performing configurations are analyzed to evaluate their predictive performance, with the selected hybrid model integrated into a Streamlit application for interactive research and educational purposes.',
+
+  tags: [
+    'Python',
+    'Pandas',
+    'NumPy',
+    'Scikit-learn',
+    'XGBoost',
+    'LightGBM',
+    'Optuna',
+    'SMOTEENN',
+    'SHAP',
+    'Streamlit',
+    'Google Colab',
+    'Git',
+    'GitHub'
+  ],
+
+  stat: '70,000 Data',
+
+  deploy: 'https://hybrid-xgboost-lightgbm-heart-prediction-n6j49etywmwt48vc58d5h.streamlit.app/',
+
+  github: 'https://github.com/fauzsanno/hybrid-xgboost-lightgbm-heart-prediction',
+},
+
+
   {
     n: '02',
-    title: 'Portfolio Web Application',
-    desc: 'A practical web application featuring intuitive user flows, responsive UI, and a clean interface.',
-    tags: ['Next.js', 'TypeScript', 'React', 'Tailwind CSS'],
-    stat: 'Full-stack project',
-    github: 'https://github.com/fauzsanno/portofolio',
+    title: 'Customer Segmentation',
+    category: 'Data Mining / Machine Learning',
+    projectType: 'Unsupervised Learning',
+    dataset: 'Online Retail II',
+    bestModel: 'K-Means (k = 2)',
+    silhouetteScore: '0.4386',
+    desc: 'Customer segmentation experiment using RFM analysis to compare K-Means, Agglomerative Clustering, and DBSCAN on the Online Retail II dataset. Evaluated clustering performance using internal validation metrics and identified actionable customer segments to support data-driven marketing strategies. K-Means with two clusters achieved the best overall evaluation results in the experiment.',
+    tags: ['Python', 'Pandas', 'NumPy', 'Scikit-learn', 'Matplotlib', 'Plotly', 'Streamlit', 'Google Colab', 'Git', 'GitHub'],
+    stat: '5,878 customers',
+    deploy: 'https://customer-segmentation-rfm-lsjs6cop8ek22fvarf2d6w.streamlit.app/',
+    github: 'https://github.com/fauzsanno/customer-segmentation-rfm',
   },
+
   {
     n: '03',
     title: 'PerpustakaanAppMVC',
+    category: 'Web Development',
+    projectType: 'Full-Stack Development',
     desc: 'A practical web application focused on structured data, user flows, database management and a clean interface.',
-    tags: ['PHP', 'MySQL', 'javascript', 'Bootstrap'],
-    stat: '242,834 records',
+    tags: ['PHP', 'MySQL', 'JavaScript'],
+    stat: 'Full-stack project',
+    deploy: '',
     github: 'https://github.com/fauzsanno/PerpustakaanAppMVC',
   },
 ];
@@ -228,17 +269,17 @@ export default function Home()  {
 
         <h1 className="text-5xl font-semibold leading-[0.92] tracking-tight sm:text-7xl md:text-8xl">
 
-          I BUILD.
+          BUILD.
 
           <br />
 
           <span className="text-slate-500">
-            I ANALYZE.
+            ANALYZE.
           </span>
 
           <br />
 
-          I SOLVE.
+          SOLVE.
 
         </h1>
 
@@ -726,6 +767,7 @@ export default function Home()  {
 </section>
 
 
+
 {/* PROJECTS */}
 <section id="projects" className="mx-auto max-w-6xl px-6 py-24">
   <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
@@ -740,90 +782,148 @@ export default function Home()  {
 
       <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-400 sm:text-base">
         I enjoy exploring data, uncovering meaningful patterns, and
-              experimenting with machine learning to turn real-world problems
-              into practical solutions.
+        experimenting with machine learning to turn real-world problems
+        into practical solutions.
       </p>
     </div>
 
     <div className="font-mono text-xs uppercase tracking-[0.2em] text-slate-500">
-      03 Projects
+      {String(projects.length).padStart(2, '0')} Projects
     </div>
   </div>
 
   <div className="grid gap-6 lg:grid-cols-2">
-    {projects.map((project) => (
-      <article
-        key={project.n}
-        className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition duration-300 hover:border-blue-400/30 hover:bg-white/[0.05] sm:p-8"
-      >
-        {/* Decorative glow */}
-        <div className="pointer-events-none absolute -right-20 -top-20 h-40 w-40 rounded-full bg-blue-500/10 blur-3xl transition duration-500 group-hover:bg-blue-500/20" />
+    {projects.map((project) => {
+      const isMachineLearning =
+        project.category === 'Data Science / Machine Learning';
 
-        {/* Project number */}
-        <div className="relative flex items-start justify-between">
-          <span className="font-mono text-xs tracking-[0.2em] text-blue-400">
-            PROJECT / {project.n}
-          </span>
+      return (
+        <article
+          key={project.n}
+          className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition duration-300 hover:border-blue-400/30 hover:bg-white/[0.05] sm:p-8"
+        >
+          <div className="pointer-events-none absolute -right-20 -top-20 h-40 w-40 rounded-full bg-blue-500/10 blur-3xl transition duration-500 group-hover:bg-blue-500/20" />
 
-          <FolderGit2 className="h-5 w-5 text-slate-600 transition group-hover:text-blue-400" />
-        </div>
-
-        {/* Title */}
-        <h3 className="relative mt-8 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-          {project.title}
-        </h3>
-
-        {/* Description */}
-        <p className="relative mt-4 max-w-xl text-sm leading-7 text-slate-400">
-          {project.desc}
-        </p>
-
-        {/* Tags */}
-        <div className="relative mt-6 flex flex-wrap gap-2">
-          {project.tags.map((tag) => (
-            <span
-              key={tag}
-              className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-slate-300"
-            >
-              {tag}
+          {/* Project Number */}
+          <div className="relative flex items-start justify-between">
+            <span className="font-mono text-xs tracking-[0.2em] text-blue-400">
+              PROJECT / {project.n}
             </span>
-          ))}
-        </div>
 
-        {/* Bottom information */}
-        <div className="relative mt-8 flex flex-col gap-6 border-t border-white/10 pt-6 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-slate-500">
-              Project Data
-            </p>
-
-            <p className="mt-2 text-sm text-slate-300">
-              {project.stat}
-            </p>
+            <FolderGit2 className="h-5 w-5 text-slate-600 transition group-hover:text-blue-400" />
           </div>
 
-          {/* Repository */}
-            <a
-            href={project.deploy}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-medium text-blue-300 transition hover:text-blue-200"
-          >
-            deploy
-            <ArrowUpRight className="h-4 w-4" />
-          </a>
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-medium text-blue-300 transition hover:text-blue-200"
-          >
-            Open Repository
-            <ArrowUpRight className="h-4 w-4" />
-          </a>
-        </div>
-      </article>
-    ))}
+          {/* Title — preserved */}
+          <h3 className="relative mt-8 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+            {project.title}
+          </h3>
+
+          {/* Category */}
+          <div className="relative mt-4">
+            <span className="inline-flex rounded-full border border-blue-400/20 bg-blue-400/10 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-blue-300">
+              {project.category}
+            </span>
+          </div>
+
+          {/* Description — preserved */}
+          <p className="relative mt-4 max-w-xl text-sm leading-7 text-slate-400">
+            {project.desc}
+          </p>
+
+          {/* Machine Learning Metadata */}
+          {project.projectType && (
+            <div className="relative mt-6 rounded-xl border border-white/10 bg-black/20 p-4 sm:p-5">
+              <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.2em] text-slate-500">
+                Experiment Overview
+              </p>
+
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div>
+                  <p className="text-xs text-slate-500">Project Type</p>
+                  <p className="mt-1 text-sm text-slate-200">
+                    {project.projectType}
+                  </p>
+                </div>
+
+                <div>
+                  <p className="text-xs text-slate-500">Dataset</p>
+                  <p className="mt-1 text-sm text-slate-200">
+                    {project.dataset}
+                  </p>
+                </div>
+
+                <div>
+                  <p className="text-xs text-slate-500">Best Model</p>
+                  <p className="mt-1 text-sm font-medium text-slate-200">
+                    {project.bestModel}
+                  </p>
+                </div>
+
+                <div>
+                  <p className="text-xs text-slate-500">
+                    Best Silhouette Score
+                  </p>
+                  <p className="mt-1 font-mono text-lg font-semibold text-blue-300">
+                    {project.silhouetteScore}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Technology Tags */}
+          <div className="relative mt-6 flex flex-wrap gap-2">
+            {project.tags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-slate-300"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          {/* Bottom Information */}
+          <div className="relative mt-8 flex flex-col gap-5 border-t border-white/10 pt-6">
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-slate-500">
+                Project Data
+              </p>
+
+              <p className="mt-2 text-sm text-slate-300">
+                {project.stat}
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+              {project.deploy && (
+                <a
+                  href={project.deploy}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-blue-300 transition hover:text-blue-200"
+                >
+                  Live Demo
+                  <ArrowUpRight className="h-4 w-4" />
+                </a>
+              )}
+
+              {project.github && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-blue-300 transition hover:text-blue-200"
+                >
+                  Open Repository
+                  <ArrowUpRight className="h-4 w-4" />
+                </a>
+              )}
+            </div>
+          </div>
+        </article>
+      );
+    })}
   </div>
 </section>
 
