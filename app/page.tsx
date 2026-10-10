@@ -19,7 +19,7 @@ const projects = [
 {
   n: '01',
 
-  title: 'TA/Skirpsi (Optimization of Heart Disease Risk Prediction Using a Hybrid Gradient Boosting Method Based on a Combination of XGBoost and LightGBM Models)',
+  title: "Bachelors Thesis (Optimization of Heart Disease Risk Prediction Using a Hybrid Gradient Boosting Method Based on a Combination of XGBoost and LightGBM Models)",
 
   category: 'Data Mining / Machine Learning',
 
@@ -74,15 +74,28 @@ const projects = [
 
   {
     n: '03',
+    title: 'Car Rental App',
+    category: 'Web Development',
+    projectType: 'Full-Stack Development',
+    desc: 'A feature-rich web-based car rental application built with Laravel, Tailwind CSS, and MySQL. Designed for seamless vehicle management, customer bookings, and administrative operations',
+    tags: ['PHP', 'MySQL', 'Tailwind CSS'],
+    stat: 'Full-stack project',
+    deploy: '',
+    github: 'https://github.com/fauzsanno/Car_Rental-main',
+  },
+
+  {
+    n: '04',
     title: 'PerpustakaanAppMVC',
     category: 'Web Development',
     projectType: 'Full-Stack Development',
     desc: 'A practical web application focused on structured data, user flows, database management and a clean interface.',
-    tags: ['PHP', 'MySQL', 'JavaScript'],
+    tags: ['C#', 'MVC', 'MySQL', 'Bootstrap'],
     stat: 'Full-stack project',
     deploy: '',
     github: 'https://github.com/fauzsanno/PerpustakaanAppMVC',
   },
+
 ];
 
 const skills = [
